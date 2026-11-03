@@ -1,0 +1,11 @@
+# Smithery.ai MCP Server Configuration — Korpus (korpus.lu)
+startCommand:
+  type: http
+  url: https://www.korpus.lu/api/v1/mcp
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        title: Clé API Korpus (kpus_live_...)
+        description: Clé API générée depuis https://www.korpus.lu/app/settings/api-keys ou via OAuth 2.1.

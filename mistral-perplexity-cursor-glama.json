@@ -1,0 +1,31 @@
+{
+  "mistral_le_chat": {
+    "name": "Korpus Legal Intelligence",
+    "description": "Corpus juridique et fiscal scientifique sans hallucination (FR, EU, LU, MC, AD) avec résolution exacte des textes en vigueur (korpus.lu).",
+    "mcp_endpoint": "https://www.korpus.lu/api/v1/mcp",
+    "transport": "streamable-http",
+    "auth_type": "oauth2_or_bearer",
+    "oauth_metadata": "https://www.korpus.lu/.well-known/oauth-authorization-server",
+    "signup_url": "https://www.korpus.lu/auth/register"
+  },
+  "perplexity_connector": {
+    "name": "Korpus Legal Intelligence",
+    "server_url": "https://www.korpus.lu/api/v1/mcp",
+    "discovery_url": "https://www.korpus.lu/.well-known/mcp.json",
+    "auth_header": "Authorization: Bearer kpus_live_..."
+  },
+  "cursor_deeplink": {
+    "mcpServers": {
+      "korpus": {
+        "url": "https://www.korpus.lu/api/v1/mcp"
+      }
+    }
+  },
+  "glama": {
+    "$schema": "https://glama.ai/mcp/schemas/connector.json",
+    "name": "Korpus Legal Intelligence",
+    "url": "https://www.korpus.lu/api/v1/mcp",
+    "homepage": "https://www.korpus.lu",
+    "author": "Korpus"
+  }
+}

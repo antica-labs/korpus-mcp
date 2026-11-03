@@ -1,0 +1,38 @@
+{
+  "submission_type": "remote_mcp_connector",
+  "portal_url": "https://claude.ai/directory/manage",
+  "name": "Korpus Legal Intelligence",
+  "slug": "korpus-legal-intelligence",
+  "tagline": "Corpus juridique et fiscal scientifique sans hallucination (FR, EU, LU, MC, AD) avec preuve SHA-256.",
+  "description": "Connectez Korpus (korpus.lu) à Claude pour interroger la législation, la jurisprudence, la doctrine académique et les rescrits fiscaux (France, UE, Luxembourg, Monaco, Andorre) avec résolution exacte des articles en vigueur, score de groundedness et graphe de citations.",
+  "category": "Legal & Compliance",
+  "server_url": "https://www.korpus.lu/api/v1/mcp",
+  "protocol_version": "2025-03-26",
+  "transport": "streamable-http",
+  "authentication": {
+    "type": "oauth2",
+    "pkce_required": true,
+    "code_challenge_method": "S256",
+    "protected_resource_metadata_url": "https://www.korpus.lu/.well-known/oauth-protected-resource",
+    "authorization_server_metadata_url": "https://www.korpus.lu/.well-known/oauth-authorization-server",
+    "authorization_url": "https://www.korpus.lu/api/oauth/authorize",
+    "token_url": "https://www.korpus.lu/api/oauth/token",
+    "registration_url": "https://www.korpus.lu/api/oauth/register",
+    "allowed_callback_urls": [
+      "https://claude.ai/api/mcp/auth_callback",
+      "https://claude.com/api/mcp/auth_callback",
+      "http://localhost/callback",
+      "claude://mcp/auth_callback"
+    ],
+    "default_scopes": ["mcp", "search", "articles", "rag", "verify"]
+  },
+  "links": {
+    "homepage": "https://www.korpus.lu",
+    "signup_onboarding": "https://www.korpus.lu/auth/register",
+    "pricing": "https://www.korpus.lu/tarifs",
+    "documentation": "https://www.korpus.lu/api/mcp",
+    "privacy_policy": "https://www.korpus.lu/confidentialite",
+    "terms_of_service": "https://www.korpus.lu/cgu",
+    "support_email": "api@korpus.lu"
+  }
+}

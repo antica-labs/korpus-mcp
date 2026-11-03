@@ -1,0 +1,38 @@
+{
+  "connector_name": "Korpus Legal Intelligence",
+  "connector_id": "korpus_legal_mcp",
+  "description_for_human": "Recherche juridique, fiscale et réglementaire sans hallucination (FR, EU, LU, MC, AD) avec résolution exacte des textes en vigueur (korpus.lu).",
+  "description_for_model": "Utilisez le serveur MCP Korpus pour rechercher des lois, règlements, rescrits fiscaux, jurisprudences et articles de doctrine (FR, EU, LU, MC, AD). Avant de citer un article de loi, appelez systématiquement `korpus_resolve_citation` pour obtenir le texte exact en vigueur et son hash SHA-256.",
+  "mcp_server": {
+    "url": "https://www.korpus.lu/api/v1/mcp",
+    "transport": "streamable_http",
+    "protocol_version": "2025-03-26",
+    "deep_research_compatible": true,
+    "required_tools": ["search", "fetch"]
+  },
+  "openapi_spec_url": "https://www.korpus.lu/api/v1/openapi.json",
+  "auth": {
+    "type": "oauth2",
+    "authorization_url": "https://www.korpus.lu/api/oauth/authorize",
+    "token_url": "https://www.korpus.lu/api/oauth/token",
+    "registration_url": "https://www.korpus.lu/api/oauth/register",
+    "code_challenge_method": "S256",
+    "scope": "mcp search articles rag verify",
+    "allowed_redirect_uris": [
+      "https://chatgpt.com/connector_platform_oauth_redirect",
+      "https://platform.openai.com/apps-manage/oauth"
+    ]
+  },
+  "onboarding": {
+    "signup_url": "https://www.korpus.lu/auth/register",
+    "api_keys_url": "https://www.korpus.lu/app/settings/api-keys",
+    "privacy_policy_url": "https://www.korpus.lu/confidentialite",
+    "terms_of_service_url": "https://www.korpus.lu/cgu"
+  },
+  "responses_api_snippet": {
+    "type": "mcp",
+    "server_label": "korpus",
+    "server_url": "https://www.korpus.lu/api/v1/mcp",
+    "require_approval": "never"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "lu.korpus/korpus-mcp",
+  "description": "Korpus — Corpus juridique et fiscal sans hallucination (FR/EU/LU/MC/AD) avec preuve SHA-256.",
+  "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/maximecernot-crypto/korpus-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.korpus.lu",
+  "remotes": [
+    {
+      "transport_type": "streamable-http",
+      "url": "https://www.korpus.lu/api/v1/mcp",
+      "authentication": {
+        "type": "oauth2",
+        "authorization_server_metadata_url": "https://www.korpus.lu/.well-known/oauth-authorization-server",
+        "protected_resource_metadata_url": "https://www.korpus.lu/.well-known/oauth-protected-resource"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "korpus": {
+      "serverUrl": "https://www.korpus.lu/api/v1/mcp"
+    }
+  }
+}

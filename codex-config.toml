@@ -1,0 +1,11 @@
+# Configuration officielle OpenAI Codex CLI / Cloud (~/.codex/config.toml)
+# Documentation : https://www.korpus.lu/api/mcp
+# Créez un compte sur https://www.korpus.lu/auth/register puis générez
+# une clé `kpus_live_...` dans Paramètres -> Clés API (/app/settings/api-keys).
+
+[mcp_servers.korpus]
+url = "https://www.korpus.lu/api/v1/mcp"
+bearer_token_env_var = "KORPUS_API_KEY"
+startup_timeout_sec = 15
+tool_timeout_sec = 30
+enabled = true

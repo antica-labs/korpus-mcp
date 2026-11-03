@@ -1,0 +1,27 @@
+{
+  "name": "korpus",
+  "displayName": "Korpus Legal Intelligence",
+  "version": "1.1.0",
+  "description": "Search European & Francophone legislation, case law, doctrine and tax rulings (FR/EU/LU/MC/AD) with SHA-256 citation resolution via Korpus (korpus.lu).",
+  "logo": "./assets/logo.svg",
+  "suggestedPrompts": [
+    {
+      "title": "Resoudre un article de loi",
+      "prompt": "Resous le texte exact en vigueur et le hash SHA-256 d'un article de loi via korpus_resolve_citation."
+    },
+    {
+      "title": "Recherche jurisprudentielle",
+      "prompt": "Cherche la jurisprudence et la doctrine recentes sur la rupture brutale de relation commerciale dans Korpus."
+    },
+    {
+      "title": "Verifier une affirmation",
+      "prompt": "Verifie la validite juridique de cette affirmation contre la base Korpus avec korpus_verify_claim."
+    }
+  ],
+  "author": {
+    "name": "Korpus",
+    "email": "api@korpus.lu"
+  },
+  "homepage": "https://www.korpus.lu",
+  "repository": "https://github.com/maximecernot-crypto/korpus-mcp"
+}

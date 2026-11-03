@@ -1,0 +1,11 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["maximecernot-crypto"],
+  "name": "Korpus Legal Intelligence",
+  "description": "Serveur MCP officiel de Korpus (korpus.lu) — Recherche juridique, fiscale et réglementaire sans hallucination (FR/EU/LU/MC/AD) avec preuve SHA-256.",
+  "homepage": "https://www.korpus.lu",
+  "remote": {
+    "transport": "streamable-http",
+    "url": "https://www.korpus.lu/api/v1/mcp"
+  }
+}
