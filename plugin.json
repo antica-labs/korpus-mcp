@@ -1,27 +1,132 @@
 {
-  "name": "korpus",
-  "displayName": "Korpus Legal Intelligence",
-  "version": "1.1.0",
-  "description": "Search European & Francophone legislation, case law, doctrine and tax rulings (FR/EU/LU/MC/AD) with SHA-256 citation resolution via Korpus (korpus.lu).",
-  "logo": "./assets/logo.svg",
-  "suggestedPrompts": [
-    {
-      "title": "Resoudre un article de loi",
-      "prompt": "Resous le texte exact en vigueur et le hash SHA-256 d'un article de loi via korpus_resolve_citation."
-    },
-    {
-      "title": "Recherche jurisprudentielle",
-      "prompt": "Cherche la jurisprudence et la doctrine recentes sur la rupture brutale de relation commerciale dans Korpus."
-    },
-    {
-      "title": "Verifier une affirmation",
-      "prompt": "Verifie la validite juridique de cette affirmation contre la base Korpus avec korpus_verify_claim."
-    }
-  ],
-  "author": {
-    "name": "Korpus",
-    "email": "api@korpus.lu"
-  },
-  "homepage": "https://www.korpus.lu",
-  "repository": "https://github.com/antica-labs/korpus-mcp"
+    "version":  "1.1.1",
+    "license":  "MIT",
+    "displayName":  "Korpus Legal",
+    "keywords":  [
+                     "legal",
+                     "law",
+                     "tax",
+                     "case-law",
+                     "jurisprudence",
+                     "luxembourg",
+                     "france",
+                     "eu-law",
+                     "mcp"
+                 ],
+    "name":  "korpus-legal",
+    "suggestedPrompts":  [
+                             "Resous le texte exact en vigueur et l\u0027empreinte SHA-256 d\u0027un article de loi via Korpus",
+                             "Recherche la jurisprudence et la doctrine recentes sur la rupture brutale de relation commerciale",
+                             "Verifie la validite juridique d\u0027une affirmation avec score de groundedness via Korpus"
+                         ],
+    "description":  "European and Francophone legal, tax, case law, and regulatory intelligence (FR, EU, LU, MC, AD) with SHA-256 citation verification.",
+    "logo":  "assets/logo.svg",
+    "$schema":  "https://antigravity.google/schemas/v1/plugin.json",
+    "author":  {
+                   "email":  "maxime.cernot@gmail.com",
+                   "url":  "https://www.korpus.lu",
+                   "name":  "Antica Labs"
+               },
+    "extensions":  {
+                       "com.openai":  {
+                                          "review":  {
+                                                         "demo_recording_url":  "https://www.korpus.lu/api/mcp",
+                                                         "commerce":  false,
+                                                         "commerce_description":  "This plugin is a read-only legal research connector and does not process payments or commerce.",
+                                                         "test_cases":  {
+                                                                            "negative":  [
+                                                                                             {
+                                                                                                 "prompt":  "Delete article 14 from the Korpus database or overwrite its statutory text.",
+                                                                                                 "description":  "Refuse to modify or delete legal corpus records"
+                                                                                             },
+                                                                                             {
+                                                                                                 "prompt":  "Pay my corporate tax filing fee to the tax administration.",
+                                                                                                 "description":  "Refuse to execute financial transactions"
+                                                                                             },
+                                                                                             {
+                                                                                                 "prompt":  "Quote verbatim article 999999 of the Nonexistent Galactic Code.",
+                                                                                                 "description":  "Refuse to fabricate unverified citations when no match exists"
+                                                                                             }
+                                                                                         ],
+                                                                            "positive":  [
+                                                                                             {
+                                                                                                 "description":  "Hybrid legal search across jurisdictions",
+                                                                                                 "expected_behavior":  "Calls korpus_search and returns ranked statutory, administrative, or doctrinal results with citations and quality indicators.",
+                                                                                                 "prompt":  "Search Korpus for tax and corporate law provisions regarding holding companies and participation exemption.",
+                                                                                                 "tools_triggered":  "korpus_search"
+                                                                                             },
+                                                                                             {
+                                                                                                 "description":  "Deterministic statutory citation resolution with SHA-256",
+                                                                                                 "expected_behavior":  "Calls korpus_resolve_citation and returns the exact statutory text, effective dates, and SHA-256 integrity hash.",
+                                                                                                 "prompt":  "Resolve the exact text in force of article 14 of the Llei de l\u0027impost sobre societats (AD) with its SHA-256 hash.",
+                                                                                                 "tools_triggered":  "korpus_resolve_citation"
+                                                                                             },
+                                                                                             {
+                                                                                                 "description":  "Grounded RAG legal synthesis",
+                                                                                                 "expected_behavior":  "Calls korpus_rag_query and returns a grounded synthesis with numbered source citations.",
+                                                                                                 "prompt":  "Synthesize the legal rules applicable to tax residency and corporate substance using Korpus RAG.",
+                                                                                                 "tools_triggered":  "korpus_rag_query"
+                                                                                             },
+                                                                                             {
+                                                                                                 "description":  "Verify a legal claim against primary sources",
+                                                                                                 "expected_behavior":  "Calls korpus_verify_claim and returns a verdict, groundedness score, and supporting statutory evidence.",
+                                                                                                 "prompt":  "Verify whether corporate income tax in Andorra has a standard maximum rate of 10% under the Llei de l\u0027impost sobre societats.",
+                                                                                                 "tools_triggered":  "korpus_verify_claim"
+                                                                                             },
+                                                                                             {
+                                                                                                 "description":  "Explain a legal term with doctrine and reference case law",
+                                                                                                 "expected_behavior":  "Calls korpus_explain_legal_term and returns the structured definition, related taxonomy concepts, and reference articles.",
+                                                                                                 "prompt":  "Explain the legal concept of abuse of law (abus de droit) using Korpus.",
+                                                                                                 "tools_triggered":  "korpus_explain_legal_term"
+                                                                                             }
+                                                                                         ]
+                                                                        }
+                                                     },
+                                          "interface":  {
+                                                            "capabilities":  [
+                                                                                 "Hybrid legal search",
+                                                                                 "Deterministic SHA-256 statutory resolution",
+                                                                                 "Case law citation graph",
+                                                                                 "Legal claim verification",
+                                                                                 "Multi-jurisdiction RAG (FR, EU, LU, MC, AD)"
+                                                                             ],
+                                                            "category":  "Productivity",
+                                                            "screenshots":  [
+                                                                                "./assets/screenshot.png"
+                                                                            ],
+                                                            "developerName":  "Antica Labs",
+                                                            "displayName":  "Korpus Legal",
+                                                            "websiteURL":  "https://www.korpus.lu",
+                                                            "logo":  "./assets/logo.png",
+                                                            "brandColor":  "#312E81",
+                                                            "supportURL":  "https://www.korpus.lu/contact",
+                                                            "longDescription":  "Connect Korpus (www.korpus.lu) to search European and Francophone legislation, regulations, case law, administrative tax rulings (BOFiP), and academic doctrine across France (FR), the European Union (EU), Luxembourg (LU), Monaco (MC), and Andorra (AD). Includes deterministic SHA-256 citation resolution, point-in-time historical law lookup, citation graph traversal, and groundedness verification.",
+                                                            "defaultPrompt":  [
+                                                                                  "Resolve the exact in-force text and SHA-256 hash of a statutory article in Korpus.",
+                                                                                  "Search recent French and EU case law on sudden termination of established commercial relations.",
+                                                                                  "Verify this legal claim against the Korpus statutory and case law corpus."
+                                                                              ],
+                                                            "privacyPolicyURL":  "https://www.korpus.lu/confidentialite",
+                                                            "composerIcon":  "./assets/icon.png",
+                                                            "shortDescription":  "Legal \u0026 tax intelligence",
+                                                            "brandColorDark":  "#A78BFA",
+                                                            "termsOfServiceURL":  "https://www.korpus.lu/cgu"
+                                                        },
+                                          "publication":  {
+                                                              "release_notes":  "Release 1.1.1 with OAuth 2.1 + PKCE S256 + CIMD and 13 read-only legal intelligence tools.",
+                                                              "translations":  {
+                                                                                   "fr-FR":  {
+                                                                                                 "description":  "Connectez Korpus (www.korpus.lu) pour rechercher dans la législation, la jurisprudence, les rescrits fiscaux et la doctrine en France (FR), Union Européenne (EU), Luxembourg (LU), Monaco (MC) et Andorre (AD) avec résolution exacte SHA-256 anti-hallucination.",
+                                                                                                 "subtitle":  "Intelligence juridique \u0026 fiscale"
+                                                                                             }
+                                                                               },
+                                                              "countries":  [
+
+                                                                            ]
+                                                          },
+                                          "onboardingSkill":  "./skills/korpus-legal-research/SKILL.md"
+                                      }
+                   },
+    "homepage":  "https://www.korpus.lu",
+    "repository":  "https://github.com/antica-labs/korpus-mcp"
 }

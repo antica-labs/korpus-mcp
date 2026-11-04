@@ -1,0 +1,20 @@
+{
+    "name":  "antica-labs-korpus",
+    "interface":  {
+                      "displayName":  "Antica Labs — Korpus Legal"
+                  },
+    "plugins":  [
+                    {
+                        "policy":  {
+                                       "installation":  "AVAILABLE",
+                                       "authentication":  "ON_INSTALL"
+                                   },
+                        "category":  "Productivity",
+                        "name":  "korpus-legal",
+                        "source":  {
+                                       "path":  "./",
+                                       "source":  "local"
+                                   }
+                    }
+                ]
+}

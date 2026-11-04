@@ -1,7 +1,10 @@
 {
-  "mcpServers": {
-    "korpus": {
-      "serverUrl": "https://www.korpus.lu/api/v1/mcp"
-    }
-  }
+    "mcpServers":  {
+                       "korpus":  {
+                                      "url":  "https://www.korpus.lu/api/v1/mcp",
+                                      "oauth":  {
+                                                    "clientId":  "antigravity-marketplace-client"
+                                                }
+                                  }
+                   }
 }
