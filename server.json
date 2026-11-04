@@ -3,11 +3,11 @@
   "name": "lu.korpus/korpus",
   "title": "Korpus — Intelligence Juridique & Fiscale",
   "description": "Intelligence juridique et fiscale multi-juridictions (FR, EU, LU, MC, AD) + résolution SHA-256.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "websiteUrl": "https://www.korpus.lu",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/maximecernot-crypto/korpus-mcp/main/assets/logo.svg",
+      "src": "https://raw.githubusercontent.com/antica-labs/korpus-mcp/main/assets/logo.svg",
       "mimeType": "image/svg+xml",
       "sizes": [
         "any"
@@ -15,7 +15,7 @@
     }
   ],
   "repository": {
-    "url": "https://github.com/maximecernot-crypto/korpus-mcp",
+    "url": "https://github.com/antica-labs/korpus-mcp",
     "source": "github"
   },
   "remotes": [
