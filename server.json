@@ -3,7 +3,7 @@
   "name": "lu.korpus/korpus",
   "title": "Korpus — Intelligence Juridique & Fiscale",
   "description": "Intelligence juridique et fiscale multi-juridictions (FR, EU, LU, MC, AD) + résolution SHA-256.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "websiteUrl": "https://www.korpus.lu",
   "icons": [
     {
