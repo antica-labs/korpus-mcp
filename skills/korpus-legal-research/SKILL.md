@@ -1,34 +1,34 @@
 ---
 name: korpus-legal-research
-description: Recherche juridique, fiscale et réglementaire multi-juridictions (France, Union Européenne, Luxembourg, Monaco, Andorre) avec résolution exacte des textes en vigueur + SHA-256 anti-hallucination via le serveur MCP officiel de Korpus (korpus.lu).
+description: European and Francophone legal, tax, case law, and Akoma Ntoso 3.0 / ELI statutory certification (FR, EU, LU, MC, AD) with SHA-256 & RFC 3161 proof.
 ---
 
-# Korpus — Intelligence Juridique, Fiscale & Réglementaire (MCP)
+# Korpus Legal — Official B2A MCP Connector (`v1.2.0`)
 
-Utilisez cette compétence pour toute question de droit, de fiscalité, de jurisprudence ou de réglementation couvrant la **France (`FR`)**, l'**Union Européenne (`EU`)**, le **Luxembourg (`LU`)**, **Monaco (`MC`)** et l'**Andorre (`AD`)** via **Korpus** (`https://www.korpus.lu`).
+Use this skill whenever the task requires deterministic, cryptographically sealed (`SHA-256` + dual `RFC 3161`) outputs from **Korpus Legal** (`https://www.korpus.lu/api/v1/mcp`).
 
-## Authentification & Création de Compte
+## Discovery & Protocol Support
+- **Streamable HTTP Endpoint**: `https://www.korpus.lu/api/v1/mcp` (MCP `2024-11-05`, `2025-03-26`, `2025-06-18`, `2026-07-28`)
+- **B2A Manifest & Live SLA Beacon**: `https://www.korpus.lu/.well-known/mcp.json`
+- **Perplexity Connector Manifest**: `https://www.korpus.lu/.well-known/mcp-connector.json`
+- **A2A Agent Card**: `https://www.korpus.lu/.well-known/agent-card.json`
+- **OpenAPI 3.1.0 Specification**: `https://www.korpus.lu/openapi.json`
+- **Probatory Proof Verifier (`0,00 EUR`)**: `https://www.korpus.lu/verify/<proof_id>`
 
-Le serveur MCP Korpus (`https://www.korpus.lu/api/v1/mcp`) supporte :
-1. **OAuth 2.1 + PKCE (`S256`)** via `https://www.korpus.lu/.well-known/oauth-authorization-server` : ouvre automatiquement la fenêtre d'autorisation et de création de compte (`https://www.korpus.lu/auth/register`).
-2. **Bearer Token (`kpus_live_...`)** généré depuis **Paramètres → Clés API** (`https://www.korpus.lu/app/settings/api-keys`).
+## Primary `Output-First` Tools
+- `probe_norm_validity_status`: Fast-lane point-in-time validity probe returning repeal/amendment status and SHA-256 seal.
+- `certify_consolidated_statute_akoma`: Certifies consolidated statute text in Akoma Ntoso 3.0 XML + canonical ELI URI.
+- `verify_jurisprudence_non_cassation`: Verifies case-law non-quashing status and citation authority (compliant with Art. L.111-13 COJ).
+- `audit_legal_claim_groundedness`: Audits a legal or tax claim against primary sources with Pay-on-Verified-Hit >= 0.88.
+- `synthesize_jurisdictional_rag_brief`: Synthesizes a 500-token grounded multi-jurisdiction legal brief with numbered SHA-256 citations.
+- `resolve_doctrinal_taxonomy_authority`: Resolves doctrinal definitions, cross-border concepts, and authoritative commentary.
+- `trace_normative_chronology_evolution`: Traces historical versions and applicability windows of a statutory provision.
+- `subscribe_normative_drift_webhook`: Subscribes to signed JWS webhooks triggered upon statutory amendment or case-law reversal.
+- `search`: Canonical hybrid statutory, case-law, BOFiP, and doctrinal search.
+- `fetch`: Canonical deterministic retrieval of an article, ruling, or Akoma Ntoso node.
 
-## Règle d'Or Anti-Hallucination
+*(Legacy v1 tool names remain 100% supported on `tools/call` via transparent alias resolution.)*
 
-1. **Ne citez jamais un article de loi de mémoire** : appelez systématiquement `korpus_resolve_citation` (`textRef`, `articleNumber`, `country`, `atDate`) pour obtenir le texte exact en vigueur et son empreinte `sha256`.
-2. **Respectez le bloc `korpus_response_quality`** retourné par `korpus_search` :
-   - Si `matchQuality` vaut `approximate` ou `weak`, ne présentez pas le résultat comme certain et posez les questions listées dans `clarifications`.
-
-## Les 13 Outils MCP Korpus (`readOnlyHint: true`)
-
-- `korpus_resolve_citation` : Texte intégral en vigueur d'un article de loi/règlement + `sha256` + support time-travel (`atDate`).
-- `korpus_search` (et alias `search`) : Recherche hybride RRF (lexicale BM25 + vectorielle `voyage-law-2`) filtrable par `jurisdictions` (`FR`, `EU`, `LU`, `MC`, `AD`) et `categories` (`loi`, `reglement`, `rescrit_fiscal`, `jurisprudence`, `doctrine`, `constitution`, `convention`).
-- `korpus_get_article` (et alias `fetch`) : Lecture complète d'un article ou commentaire (headnotes, concepts, groundedness score, hash SHA-256).
-- `korpus_rag_query` : Synthèse juridique RAG sourcée avec notes de bas de page vérifiées.
-- `korpus_verify_claim` : Vérification factuelle d'une affirmation juridique avec score de groundedness `0..1`.
-- `korpus_get_decision` : Décision judiciaire brute par numéro de pourvoi ou ECLI.
-- `korpus_get_concept` : Concept taxonomique EuroVoc / LKIF / Korpus et articles rattachés.
-- `korpus_get_relations` : Graphe de citations jurisprudentielles (`cite`, `casse`, `confirme`, `distingue`, `abroge`, `contredit`).
-- `korpus_explain_legal_term` : Définition taxonomique + doctrine + arrêts de référence.
-- `korpus_list_authorities` : Score d'autorité scientifique des auteurs cités (h-index OpenAlex, tier Platinum/Gold/Silver/Bronze, ORCID).
-- `korpus_get_chronology` : Évolution chronologique jurisprudentielle et législative d'une notion.
+## Authentication & Settlement Rails
+1. **OAuth 2.1 + PKCE (`S256`) + DCR (RFC 7591 / RFC 9728 / RFC 8414)**: Mandatory for tenant-isolated RLS data.
+2. **Public Catalogs & Stateless Simulators**: Support `HTTP 402` (`x402` EURC/USDC, Stripe MPP, and `AP2` JWS mandates) with `0,00 EUR` dry-run preflight where applicable.

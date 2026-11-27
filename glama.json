@@ -1,8 +1,10 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/server.json",
-  "maintainers": ["maximecernot-crypto"],
-  "name": "Korpus Legal Intelligence",
-  "description": "Serveur MCP officiel de Korpus (korpus.lu) — Recherche juridique, fiscale et réglementaire sans hallucination (FR/EU/LU/MC/AD) avec preuve SHA-256.",
+  "maintainers": [
+    "antica-labs"
+  ],
+  "name": "Korpus Legal",
+  "description": "European and Francophone legal, tax, case law, and Akoma Ntoso 3.0 / ELI statutory certification (FR, EU, LU, MC, AD) with SHA-256 & RFC 3161 proof.",
   "homepage": "https://www.korpus.lu",
   "remote": {
     "transport": "streamable-http",

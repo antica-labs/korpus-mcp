@@ -1,15 +1,32 @@
-# Korpus Legal Intelligence — Plugin Google Antigravity & MCP
+# Korpus Legal — Official B2A & Enterprise MCP Connector (`v1.2.0`)
 
-Connectez **Korpus** (`https://www.korpus.lu`), le corpus juridique et fiscal scientifique sans hallucination (France, Union Européenne, Luxembourg, Monaco, Andorre), directement à votre agent IA.
+European and Francophone legal, tax, case law, and Akoma Ntoso 3.0 / ELI statutory certification (FR, EU, LU, MC, AD) with SHA-256 & RFC 3161 proof.
 
-## Installation & Création de Compte
+## Sovereign Endpoints & Discovery
+| Surface | URL |
+| :--- | :--- |
+| **MCP Streamable HTTP** | `https://www.korpus.lu/api/v1/mcp` |
+| **MCP Discovery & SLA Beacon** | `https://www.korpus.lu/.well-known/mcp.json` |
+| **Perplexity Connector Manifest** | `https://www.korpus.lu/.well-known/mcp-connector.json` |
+| **A2A Agent Card** | `https://www.korpus.lu/.well-known/agent-card.json` |
+| **OAuth 2.1 Protected Resource (RFC 9728)** | `https://www.korpus.lu/.well-known/oauth-protected-resource` |
+| **OAuth 2.1 Authorization Server (RFC 8414)** | `https://www.korpus.lu/.well-known/oauth-authorization-server` |
+| **OpenAPI 3.1.0 Spec** | `https://www.korpus.lu/openapi.json` |
+| **Agent Index (`llms.txt`)** | `https://www.korpus.lu/llms.txt` |
 
-1. **OAuth 2.1 automatique** : À la première requête, Antigravity (ou Claude / ChatGPT / Codex) ouvre la page sécurisée `https://www.korpus.lu/api/oauth/authorize`.
-2. **Nouveau sur Korpus ?** Cliquez sur **Créer un compte Korpus** (`https://www.korpus.lu/auth/register`) pour ouvrir votre compte en quelques secondes.
-3. **Clé API MCP** : Générez une clé `kpus_live_...` depuis **Paramètres → Clés API** (`https://www.korpus.lu/app/settings/api-keys`) et validez l'autorisation OAuth 2.1.
+## Primary `Output-First` Tools
+- `probe_norm_validity_status`: Fast-lane point-in-time validity probe returning repeal/amendment status and SHA-256 seal.
+- `certify_consolidated_statute_akoma`: Certifies consolidated statute text in Akoma Ntoso 3.0 XML + canonical ELI URI.
+- `verify_jurisprudence_non_cassation`: Verifies case-law non-quashing status and citation authority (compliant with Art. L.111-13 COJ).
+- `audit_legal_claim_groundedness`: Audits a legal or tax claim against primary sources with Pay-on-Verified-Hit >= 0.88.
+- `synthesize_jurisdictional_rag_brief`: Synthesizes a 500-token grounded multi-jurisdiction legal brief with numbered SHA-256 citations.
+- `resolve_doctrinal_taxonomy_authority`: Resolves doctrinal definitions, cross-border concepts, and authoritative commentary.
+- `trace_normative_chronology_evolution`: Traces historical versions and applicability windows of a statutory provision.
+- `subscribe_normative_drift_webhook`: Subscribes to signed JWS webhooks triggered upon statutory amendment or case-law reversal.
+- `search`: Canonical hybrid statutory, case-law, BOFiP, and doctrinal search.
+- `fetch`: Canonical deterministic retrieval of an article, ruling, or Akoma Ntoso node.
 
-## Exemples de prompts
-
-- *"Résous le texte exact en vigueur et le hash SHA-256 de l'article 14 de la Llei de l'impost sobre societats (AD) via korpus_resolve_citation."*
-- *"Cherche la jurisprudence et la doctrine récentes sur la rupture brutale des relations commerciales établies en France."*
-- *"Vérifie cette affirmation juridique avec korpus_verify_claim et donne-moi le score de groundedness."*
+## Guarantees
+- **Zero Data Retention (`ZDR`)**: `X-Data-Retention: zero`, `X-Training-On-Payloads: false`, EU sovereign processing (`EU-FR-LU`).
+- **AST Prompt-Injection Defense**: 6-layer deterministic sanitizer (`X-Prompt-Injection-Sanitized: ast-v2`).
+- **Cryptographic Opposability**: `SHA-256` payload digest + dual qualified `RFC 3161` timestamps + `0,00 EUR` counterparty verification at `https://www.korpus.lu/verify/<proof_id>`.

@@ -1,20 +1,20 @@
 {
-    "name":  "antica-labs-korpus",
-    "interface":  {
-                      "displayName":  "Antica Labs — Korpus Legal"
-                  },
-    "plugins":  [
-                    {
-                        "policy":  {
-                                       "installation":  "AVAILABLE",
-                                       "authentication":  "ON_INSTALL"
-                                   },
-                        "category":  "Productivity",
-                        "name":  "korpus-legal",
-                        "source":  {
-                                       "path":  "./",
-                                       "source":  "local"
-                                   }
-                    }
-                ]
+  "name": "antica-labs-korpus",
+  "interface": {
+    "displayName": "Antica Labs — Korpus Legal"
+  },
+  "plugins": [
+    {
+      "name": "korpus-legal",
+      "category": "Productivity",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "source": {
+        "source": "local",
+        "path": "./"
+      }
+    }
+  ]
 }

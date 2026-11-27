@@ -1,7 +1,7 @@
 {
   "mistral_le_chat": {
-    "name": "Korpus Legal Intelligence",
-    "description": "Corpus juridique et fiscal scientifique sans hallucination (FR, EU, LU, MC, AD) avec résolution exacte des textes en vigueur (korpus.lu).",
+    "name": "Korpus Legal",
+    "description": "Connectez Korpus (www.korpus.lu) pour certifier des textes consolidés Akoma Ntoso 3.0 / ELI à date, vérifier l'absence de cassation d'un arrêt, auditer la véracité juridique d'une thèse et suivre les revirements normatifs (FR, EU, LU, MC, AD).",
     "mcp_endpoint": "https://www.korpus.lu/api/v1/mcp",
     "transport": "streamable-http",
     "auth_type": "oauth2_or_bearer",
@@ -9,10 +9,11 @@
     "signup_url": "https://www.korpus.lu/auth/register"
   },
   "perplexity_connector": {
-    "name": "Korpus Legal Intelligence",
+    "name": "Korpus Legal",
     "server_url": "https://www.korpus.lu/api/v1/mcp",
-    "discovery_url": "https://www.korpus.lu/.well-known/mcp.json",
-    "auth_header": "Authorization: Bearer kpus_live_..."
+    "discovery_url": "https://www.korpus.lu/.well-known/mcp-connector.json",
+    "mcp_manifest_url": "https://www.korpus.lu/.well-known/mcp.json",
+    "openapi_url": "https://www.korpus.lu/openapi.json"
   },
   "cursor_deeplink": {
     "mcpServers": {
@@ -23,9 +24,9 @@
   },
   "glama": {
     "$schema": "https://glama.ai/mcp/schemas/connector.json",
-    "name": "Korpus Legal Intelligence",
+    "name": "Korpus Legal",
     "url": "https://www.korpus.lu/api/v1/mcp",
     "homepage": "https://www.korpus.lu",
-    "author": "Korpus"
+    "author": "Antica Labs"
   }
 }
