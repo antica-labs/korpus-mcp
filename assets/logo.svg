@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect x="14" y="14" width="100" height="100" rx="22" fill="#111827" stroke="#1E3A8A" stroke-width="4"/>
-  <path d="M40 34 V94 M40 64 L78 34 M56 52 L84 94" stroke="#FAF9F6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="88" cy="38" r="8" fill="#B45309"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 512 512">
+  <title>Korpus</title>
+  <rect width="512" height="512" fill="#9C3A14"/>
+  <g transform="scale(4.2667)">
+    <path d="M30 26H45.5V55.2L71.8 26H89.5L60.2 57.8L90.5 94H72.2L45.5 61.8V94H30V26Z" fill="#FFFFFF"/>
+    <circle cx="99" cy="87.5" r="6.5" fill="#00E5FF"/>
+  </g>
 </svg>
